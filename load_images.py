@@ -1,8 +1,8 @@
 import shutil
 from pathlib import Path
 
-root = Path("./")   # <-- promijeni
-src_dir = root / "utkface_aligned_cropped"     # <-- ne diraj
+root = Path("./")
+src_dir = root / "utkface_aligned_cropped"
 dst_root = Path("./utk_ethnicity")             # <-- novi dataset
 
 race_map = {"0":"white",
