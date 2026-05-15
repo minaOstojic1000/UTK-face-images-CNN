@@ -106,60 +106,62 @@ This project was developed as a university project by two students.
 
 ## How to Run
 
-1. Clone the repository:
-
-```bash
-git clone <repository-url>
-cd <repository-name>
-```
-
-2. Install the required dependencies:
+Before running the training code, make sure that the required dependencies are installed:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Download the UTKFace dataset from Kaggle:
+or, on Windows:
+
+py -m pip install -r requirements.txt
+
+The main training code is located in model.py. This file contains the model definition, training process, and evaluation logic.
+
+Download the UTKFace dataset from Kaggle:
 
 https://www.kaggle.com/datasets/jangedoo/utkface-new
 
-4. Place the dataset in the expected local folder, for example:
+Place the dataset in the expected local folder:
 
 ```text
-data/UTKFace/
+utkface_aligned_cropped
 ```
 
-5. Run the training script or notebook:
+Before running model.py, first run:
 
-```bash
-python main.py
-```
+python load_images.py
 
-or open the notebook:
+This script prepares and loads the image dataset into the expected folder structure.
 
-```bash
-jupyter notebook
-```
+After the images are loaded, you can optionally run:
+
+python analiza.py
+
+This script shows the class distribution histogram and helps visualize how the dataset is distributed across categories.
+
+Finally, run the main training script:
+
+python model.py
+
+On Windows, if python does not work, use:
+
+py load_images.py
+py analiza.py
+py model.py
 
 ## Repository Structure
 
 ```text
 .
+└── report-srb/
+    └── izvjestaj.pdf
+├── .gitignore
 ├── README.md
+├── analiza.py
+├── load_images.py
+├── model.py
 ├── requirements.txt
-├── src/
-│   ├── preprocessing.py
-│   ├── model.py
-│   ├── train.py
-│   └── evaluation.py
-├── notebooks/
-│   └── utkface_classification.ipynb
-├── results/
-│   ├── accuracy_loss_plot.png
-│   ├── confusion_matrix_test.png
-│   └── confusion_matrix_train.png
-└── report/
-    └── project_report.pdf
 ```
 
 The dataset itself is not included in the repository because of its size and licensing considerations. It should be downloaded separately from Kaggle.
